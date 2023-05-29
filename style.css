@@ -1,0 +1,575 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;800&family=Manrope:wght@400;700&display=swap');
+
+/* Setting up custom properties */
+:root{
+
+  /* variables */
+  --ff-primary:'Manrope', sans serif;
+  --ff-secondary:'Fraunces', serif;
+
+  --fs-800: 5rem;
+  --fs-625: 3.75rem;
+  --fs-600: 3.5rem;
+  --fs-500: 3.125rem;
+  --fs-450: 3rem;
+  --fs-400: 2rem;
+  --fs-350: 1.75rem;
+  --fs-250: 1.25rem;
+  --fs-200: 1.125rem; 
+  --fs-100: 1rem;
+
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+
+  --ls-800: 5rem;
+  --ls-600: 4rem;
+  --ls-575: 3.75rem;
+  --ls-550: 3.5rem;
+  --ls-525: 3.125rem;
+  --ls-500: 3rem;
+  --ls-400: 2.5rem;
+  --ls-300: 2.25rem;
+  --ls-200: 2rem;
+  --ls-150: 1.75rem;
+
+  --size-100: 0.25rem;
+  --size-200: 0.5rem;
+  --size-300: 0.75rem;
+  --size-400: 1rem;
+  --size-500: 1.5rem;
+  --size-600: 2rem;
+  --size-700: 3rem;
+  --size-800: 4rem;
+  --size-900: 5rem;
+
+  /* properties */
+  --clr-primary-900: #24053E;
+
+  --clr-accent-500: #44FFA1;
+
+  --clr-neutral-600: #584D62;
+  --clr-neutral-200: #FCF8FF;
+  --clr-neutral-100: #FFFFFF;
+
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-secondary);
+
+  --fs-heading-L: var(--fs-500);
+  --fs-heading-M: var(--fs-400);
+  --fs-heading-S: var(--fs-350);
+  --fs-body: var(--fs-100);
+
+  --fw-heading: var(--fw-semi-bold);
+  --fw-body: var(--fw-regular);
+  --fw-btn: var(--fw-bold);
+
+  --ls-heading-L: var(--ls-525);
+  --ls-heading-M: var(--ls-500);
+  --ls-heading-S: var(--ls-300);
+  --ls-body: var(--ls-150);
+}
+
+@media (min-width: 48em){
+  :root{
+    --fs-heading-L: var(--fs-625);
+    --fs-heading-M: var(--fs-450);
+    --fs-heading-S: var(--fs-350);
+
+    --ls-heading-L: var(--ls-575);
+    --ls-heading-M: var(--ls-550);
+    --ls-heading-S: var(--ls-300);
+  }
+}
+
+@media (min-width: 90em){
+  :root{
+    --fs-heading-L: var(--fs-800);
+    --fs-heading-M: var(--fs-600);
+    --fs-heading-S: var(--fs-400);
+    --fs-body: var(--fs-200);
+
+    --ls-heading-L: var(--ls-800);
+    --ls-heading-M: var(--ls-600);
+    --ls-heading-S: var(--ls-400);
+    --ls-body: var(--ls-200)
+  }
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+*{
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html, body{
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* General Styling */
+h1,
+h2,
+h3{
+  font-family: var(--ff-heading);
+}
+
+body{
+  font-family: var(--ff-body);
+}
+
+li{
+  list-style-type: none;
+}
+
+section{
+  padding-top: var(--size-800);
+}
+
+div{
+  text-align: center;
+}
+
+p{
+  max-width: 343px;
+  margin-inline: auto;
+}
+
+/* Styling */
+.bgc-section{
+  border-radius: 0% 0% 100% 100%/0% 0% 20% 20%;
+  padding-bottom: var(--size-600);
+}
+
+.btn{
+  font-size: var(--fs-body);
+  font-weight: var(--fw-btn);
+  line-height: var(--ls-body);
+  border: none;
+  transition: 200ms;
+}
+
+.primary-btn{
+  background-color: var(--clr-accent-500);
+  padding: var(--size-300) var(--size-600);
+  border: #44FFA1 3px solid;
+}
+
+.secondary-btn{
+  background: none;
+  color: var(--clr-neutral-100);
+  border-bottom: #44FFA1 3px solid;
+}
+
+.primary-btn:hover,
+.primary-btn:focus-within{
+  cursor: pointer;
+  background: none;
+  color: #44FFA1;
+}
+
+.secondary-btn:hover,
+.secondary-btn:focus-within{
+  cursor: pointer;
+  color:#44FFA1
+}
+
+.circle{
+  height: 48px;
+  width: 48px;
+  line-height: 44px;
+  margin-inline: auto;
+  border: 2px var(--clr-neutral-600) solid;
+  border-radius: 100%;
+  font-size: var(--fs-250);
+  font-weight: var(--fw-semi-bold);
+}
+
+/* Utility Classes */
+.fs-heading-L{
+  font-size: var(--fs-heading-L);
+}
+
+.fs-heading-M{
+  font-size: var(--fs-heading-M);
+}
+
+.fs-heading-S{
+  font-size: var(--fs-heading-S);
+}
+
+.fs-body{
+  font-size: var(--fs-body);
+}
+
+.fw-heading{
+  font-weight: var(--fw-heading);
+}
+
+.fw-body{
+  font-weight: var(--fw-body);
+}
+
+.fw-btn{
+  font-weight: var(--fw-btn);
+}
+
+.ls-heading-L{
+  line-height: var(--ls-heading-L);
+}
+
+.ls-heading-M{
+  line-height: var(--ls-heading-M);
+}
+
+.ls-heading-S{
+  line-height: var(--ls-heading-S);
+}
+
+.ls-body{
+  line-height: var(--ls-body);
+}
+
+.text-primary-900{
+  color: var(--clr-primary-900);
+}
+
+.text-neutral-100{
+  color: var(--clr-neutral-100);
+}
+
+.bgc-primary-900{
+  background-color: var(--clr-primary-900);
+}
+
+.bgc-neutral-200{
+  background-color: var(--clr-neutral-200);
+}
+
+.bgc-neutral-100{
+  background-color: var(--clr-neutral-100);
+}
+
+.container{
+  --max-width: 1110px;
+  --padding: 1rem;
+  width: min(var(--max-width), 100% - var(--padding) * 2);
+  margin-inline: auto;
+}
+
+.nav-wrapper{
+  padding-top: var(--size-600);
+  display: flex;
+  justify-content: space-between;
+}
+
+.primary-heading{
+  text-align: center;
+  max-width: clamp(343px, 573px, 635px);
+  margin: auto;
+}
+
+.hero{
+  padding-bottom: 10rem;
+  position: relative;
+}
+
+.container[data-type="footer"]{
+  padding-bottom: 6rem;
+}
+
+.container[data-type="bio"]{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-wrapper{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 8rem;
+  width: 8rem;
+  margin-inline: auto;
+}
+
+.bio{
+  padding-block: var(--size-600);
+  width: 95%;
+  max-width: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+.bio p{
+  max-width: 85%;
+  margin-inline: auto;
+}
+
+.icons-list{
+  display: flex;
+  justify-content: space-between;
+}
+
+:where(.flow > :not(:first-child)){
+  margin-top: var(--size-500);
+}
+
+:where(.flow[data-type="main"] > :not(:first-child)){
+  margin-top: var(--size-700);
+}
+
+.phone-img{
+  position: absolute;
+  max-width: 320px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.founder-img{
+  position: relative;
+  width: 281px;
+  height: 281px;
+  top: 3rem;
+  z-index: 0;
+}
+
+.underline{
+  text-decoration: underline 4px var(--clr-accent-500);
+  text-underline-offset: 6px;
+}
+
+.even-columns{
+  margin-top: 4rem;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
+}
+
+@media(min-width: 48em){
+  p{
+    text-align: left;
+    max-width: 473px;
+  }
+
+  h2,
+  h3{
+    text-align: left;
+  }
+
+  .hero{
+    padding-bottom: 12rem;
+    position: relative;
+  }
+
+  .hero::before{
+    content: '';
+    position: absolute;
+    background-image: url("assets/images/bg-pattern-1.svg");
+    background-repeat: no-repeat;
+    background-position: -11rem 2rem;
+    inset: 0;
+  }
+
+  .hero::after{
+    content: '';
+    position: absolute;
+    background-image: url("assets/images/bg-pattern-2.svg");
+    background-repeat: no-repeat;
+    background-position: calc(100% + 105px) 60%;
+    inset: 0;
+  }
+
+  .even-columns{
+    margin-top: 7rem;
+  }
+
+  .flex{
+    flex-direction: row;
+    align-items: center;
+    max-width: 620px;
+    margin-inline: auto;
+  }
+
+  .founder-img{
+    right: 12.2rem;
+    top: 5rem;
+  }
+
+  .phone-img{
+    max-width: 514px;
+  }
+
+  .bio{
+    max-width: 514px;
+    padding-block: var(--size-700);
+    left: 4rem;
+  }
+
+  .bio p{
+    max-width: 100%;
+  }
+
+  .left-align{
+    text-align: left;
+  }
+
+  .container[data-type="bio"]{
+    position: relative;
+    bottom: 3rem;
+    padding-bottom: 6rem;
+  }
+
+  .container[data-type="bio"]::before{
+    content: '';
+    position: absolute;
+    background-image: url(assets/images/bg-pattern-3.svg);
+    background-repeat: no-repeat;
+    background-position: 85% 103%;
+    inset: 0;
+    z-index: 2;
+  }
+
+  .container[data-type="bio"] .flow{
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+}
+
+@media(min-width: 90em){
+  h3,
+  .even-columns p{
+    text-align: center;
+  }
+
+  .phone-img{
+    max-width: 767px;
+    top: 27rem;
+  }
+
+  .even-columns{
+    display: flex;
+    margin-top: 15rem;
+  }
+
+  .hero{
+    padding-bottom: 20rem;
+    position: relative;
+  }
+
+  .hero::before{
+    background-position: -8rem 3rem;
+  }
+
+  .hero::after{
+    background-position: calc(100% + 45px) 50%;
+  }
+
+  .circle{
+    margin-bottom: 1rem;
+  }
+
+  .bio{
+    max-width: 730px;
+    padding-block: var(--size-800);
+    left: 11.8rem;
+  }
+
+  .founder-img{
+    width: 477px;
+    height: 477px;
+    right: 19.8rem;
+    top: 19rem;
+  }
+
+  :where(.flow > :not(:first-child)){
+    margin-top: var(--size-600);
+  }
+
+  :where(.flow[data-type="even-columns-flex"] > :not(:first-child)){
+    margin-top: 0;
+  }
+
+  .flex{
+    flex-direction: column;
+  }
+
+  .container[data-type="bio"]{
+    position: relative;
+    bottom: 10rem;
+  }
+
+  .container[data-type="bio"]::before{
+    background-position: 50rem 47rem;
+  }
+
+  .container[data-type="bio"] .flow{
+    max-width: 602px;
+    margin-inline: auto;
+  }
+
+}
