@@ -439,7 +439,7 @@ p{
     position: absolute;
     background-image: url("assets/images/bg-pattern-2.svg");
     background-repeat: no-repeat;
-    background-position: calc(100% + 105px) 60%;
+    background-position: calc(100% + 104px) 60%;
     inset: 0;
   }
 
